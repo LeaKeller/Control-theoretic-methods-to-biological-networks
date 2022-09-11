@@ -1,4 +1,11 @@
 function SE = stability_equilibriun_Hurwitz()
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% This function computes the function of det(H_2) for different values of
+% n. H_2 represents the Hurwitz matrix. For the Hurwitz criterion to be
+% satisfied and obtain stability, det(H_2)>0.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
     syms z
 
     k1 = 1;

@@ -1,15 +1,17 @@
 function B = Brusselator_dynamics()
 
-    %% Values taken from Yishao Zhou paper
-    %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% This function displays the dynamics of the Brusselator system. The values
+% that are used are taken from Yishao Zhou paper.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     
     a = 3;
     b = [0.3, 16.5];
     
     tfinal = 100;
     
-    x01 = 0.1;
-    x02 = 0.1;
+    x01 = 1;
+    x02 = 1;
     
     for i = 1:length(b)
         %x_eq = [a; b(i)/a];
@@ -29,8 +31,8 @@ function B = Brusselator_dynamics()
     title(['a=3, ','b=', num2str(b(i))]);
     
     figure;
-    plot(t,x1); hold on; 
-    plot(t,x2);
+    plot(t,log(x1)); hold on; 
+    plot(t,log(x2));
     
     xlabel('t');
     legend('x_1','x_2');

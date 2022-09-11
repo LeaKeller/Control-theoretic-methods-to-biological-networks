@@ -1,8 +1,11 @@
-%% Plot the dynamics
-
-% With ode45
-
 function D = Dynamics_plot()
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% This function plots the dynamics of the Goodwin model using ode45. Those
+% plots are reproduced from the paper "The Goodwin model : behind the Hill
+% function".
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
     % Parameters
     k1 = 1;
     k2 = 0.1;
@@ -12,7 +15,7 @@ function D = Dynamics_plot()
     k6 = 0.1;
     ki = 1;
 
-    n = 8; %10;
+    n = 100; %10;
 
     % Final time
     tfinal = 200;

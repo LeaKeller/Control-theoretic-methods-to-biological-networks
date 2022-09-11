@@ -1,6 +1,11 @@
-%% Study Hopf bifurcation
-
 function H = Hopf_bifurcation()
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% This function provides the Hopf bifurcation diagram for the Goodwin
+% model. This is performed using the different eigenvalues at the
+% equilibria where n is the bifurcation parameter.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
     syms x y z 
     
     % Parameters

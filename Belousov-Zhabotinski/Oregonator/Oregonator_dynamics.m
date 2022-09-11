@@ -19,41 +19,43 @@ function OD = Oregonator_dynamics()
     k4 = 2400;
     k5 = 1;
     
-    f = 1;
+    f = [0.1, 1, 1+sqrt(2)];
     
     tfinal = 1500;
     
+    % Inintial conditions for full (non-reduced system)
     x01 = 1;
     x02 = 1;
     x03 = 1;
     
-    [t, x] = ode23s(@(t, x) BZ_Oregonator_reduced(t,x,k1,k2,k3,k4,k5,A,B,f) , [0 tfinal], [x01 ; x02 ; x03]);
-    
-%     x1 = (k3*A*x(:,1))/(2*k4); % scaled x
-%     x2 = (k3*A*x(:,2))/k2; % scaled y
-%     x3 = (k3*A)^2*x(:,3)/(k5*k4*B); % scaled z
-    
-    x1 = x(:,1);
-    x2 = x(:,2);
-    x3 = x(:,3);
-    
-    tau = k5*B*t; % scaled t
-    
-    figure;
-    plot(tau,log10(x1));
-    xlabel('\tau');
-    ylabel('log_{10}(x)');
-    grid on; 
-    
-    figure;
-    plot(tau,log10(x2));
-    xlabel('\tau');
-    ylabel('log_{10}(y)');
-    grid on; 
-    
-    figure;
-    plot(tau,log10(x3));
-    xlabel('\tau');
-    ylabel('log_{10}(z)');
-    grid on;
+    for i=1:length(f)
+        [t, x] = ode23s(@(t, x) BZ_Oregonator_system(t,x,k1,k2,k3,k4,k5,A,B,f(i)) , [0 tfinal], [x01 ; x02 ; x03]);
+
+        x1 = x(:,1);
+        x2 = x(:,2);
+        x3 = x(:,3);
+
+        tau = k5*B*t; % scaled t
+
+        figure;
+        plot(tau,log10(x1));
+        xlabel('\tau');
+        ylabel('log_{10}(x)');
+        title(['f = ', num2str(f(i))]);
+        grid on; 
+
+        figure;
+        plot(tau,log10(x2));
+        xlabel('\tau');
+        ylabel('log_{10}(y)');
+        title(['f = ', num2str(f(i))]);
+        grid on; 
+
+        figure;
+        plot(tau,log10(x3));
+        xlabel('\tau');
+        ylabel('log_{10}(z)');
+        title(['f = ', num2str(f(i))]);
+        grid on;
+    end
 end
