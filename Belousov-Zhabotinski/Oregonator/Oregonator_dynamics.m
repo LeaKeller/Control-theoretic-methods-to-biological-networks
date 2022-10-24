@@ -19,7 +19,7 @@ function OD = Oregonator_dynamics()
     k4 = 2400;
     k5 = 1;
     
-    f = [0.1, 1, 1+sqrt(2)];
+    f = [0.1, 1, 2.6];%1+sqrt(2)]; %2.6
     
     tfinal = 1500;
     
@@ -38,23 +38,23 @@ function OD = Oregonator_dynamics()
         tau = k5*B*t; % scaled t
 
         figure;
-        plot(tau,log10(x1));
+        plot(tau,log(x1));
         xlabel('\tau');
-        ylabel('log_{10}(x)');
+        ylabel('x');
         title(['f = ', num2str(f(i))]);
         grid on; 
 
         figure;
-        plot(tau,log10(x2));
+        plot(tau,log(x2));
         xlabel('\tau');
-        ylabel('log_{10}(y)');
+        ylabel('y');
         title(['f = ', num2str(f(i))]);
         grid on; 
 
         figure;
-        plot(tau,log10(x3));
+        plot(tau,log(x3));
         xlabel('\tau');
-        ylabel('log_{10}(z)');
+        ylabel('z');
         title(['f = ', num2str(f(i))]);
         grid on;
     end
